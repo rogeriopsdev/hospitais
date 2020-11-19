@@ -15,6 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls.static import static
+from django.conf.urls import url
+from django.views.static import serve
+from django.conf import settings
 from hospitalarapp.views import index, hospitais, criar_hospital
 
 urlpatterns = [
@@ -22,4 +26,6 @@ urlpatterns = [
     path('index/', index),
     path('hospitais/', hospitais),
     path('criar_hospital/', criar_hospital),
+    url(r'^img/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
 ]
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
