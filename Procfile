@@ -1,1 +1,1 @@
-web: gunicorn hospitais.wsgi
+web: gunicorn pw-hosp.wsgi
