@@ -1,1 +1,1 @@
-web: gunicorn pwhosp.wsgi
+web: gunicorn pwhosp02.wsgi
